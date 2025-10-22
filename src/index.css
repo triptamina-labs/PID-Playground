@@ -1,0 +1,463 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark Minimalist PID Playground Design System - Notion/Cursor Style */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    
+    /* Notion/Cursor style colors */
+    --notion-bg: 0 0% 100%;
+    --notion-surface: 0 0% 98%;
+    --notion-surface-hover: 0 0% 96%;
+    --notion-border: 0 0% 90%;
+    --notion-text: 0 0% 10%;
+    --notion-text-secondary: 0 0% 45%;
+    --notion-accent: 220 13% 91%;
+    --notion-accent-hover: 220 13% 87%;
+    --notion-blue: 210 100% 50%;
+    --notion-purple: 250 95% 60%;
+    --notion-green: 142 76% 36%;
+    --notion-orange: 25 95% 53%;
+    --notion-red: 0 84% 60%;
+    --notion-gray: 220 9% 46%;
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 0 0% 6%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 6%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 6%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 8%;
+    --input: 0 0% 8%;
+    --ring: 0 0% 98%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    
+    /* Notion/Cursor style colors - Dark theme */
+    --notion-bg: 0 0% 3%;
+    --notion-surface: 0 0% 4%;
+    --notion-surface-hover: 0 0% 6%;
+    --notion-border: 0 0% 8%;
+    --notion-text: 0 0% 98%;
+    --notion-text-secondary: 0 0% 65%;
+    --notion-accent: 0 0% 6%;
+    --notion-accent-hover: 0 0% 8%;
+    --notion-blue: 210 100% 50%;
+    --notion-purple: 250 95% 60%;
+    --notion-green: 142 76% 36%;
+    --notion-orange: 25 95% 53%;
+    --notion-red: 0 84% 60%;
+    --notion-gray: 0 0% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: hsl(var(--notion-bg));
+    color: hsl(var(--notion-text));
+  }
+
+  /* Notion/Cursor Style UI Components */
+  .notion-panel {
+    background-color: hsl(var(--notion-surface));
+    border: 1px solid hsl(var(--notion-border));
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .notion-card {
+    background-color: hsl(var(--notion-surface));
+    border: 1px solid hsl(var(--notion-border));
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .notion-card:hover {
+    background-color: hsl(var(--notion-surface-hover));
+    border-color: hsl(var(--notion-accent-hover));
+  }
+
+  .notion-button {
+    background-color: hsl(var(--notion-accent));
+    color: hsl(var(--notion-text));
+    border: 1px solid hsl(var(--notion-border));
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .notion-button:hover {
+    background-color: hsl(var(--notion-accent-hover));
+    border-color: hsl(var(--notion-text-secondary));
+  }
+
+  .notion-button-primary {
+    background-color: hsl(var(--notion-blue));
+    color: white;
+    border-color: hsl(var(--notion-blue));
+  }
+
+  .notion-button-primary:hover {
+    background-color: hsl(var(--notion-blue) / 0.9);
+  }
+
+  .notion-input {
+    background-color: hsl(var(--notion-surface));
+    border: 1px solid hsl(var(--notion-border));
+    border-radius: 6px;
+    color: hsl(var(--notion-text));
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+
+  .notion-input:focus {
+    outline: none;
+    border-color: hsl(var(--notion-blue));
+    box-shadow: 0 0 0 2px hsl(var(--notion-blue) / 0.2);
+  }
+
+  .notion-slider {
+    background-color: hsl(var(--notion-accent));
+    border-radius: 4px;
+    height: 4px;
+  }
+
+  .notion-slider::-webkit-slider-thumb {
+    background-color: hsl(var(--notion-blue));
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid hsl(var(--notion-surface));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .notion-slider::-webkit-slider-thumb:hover {
+    background-color: hsl(var(--notion-blue) / 0.9);
+    transform: scale(1.1);
+  }
+
+  /* Subtle animations - consolidated with Tailwind */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Modern scrollbar - subtle */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: hsl(var(--notion-surface));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--notion-accent));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--notion-accent-hover));
+  }
+
+  /* Status indicators */
+  .status-active {
+    color: hsl(var(--notion-green));
+  }
+
+  .status-warning {
+    color: hsl(var(--notion-orange));
+  }
+
+  .status-error {
+    color: hsl(var(--notion-red));
+  }
+
+  .status-neutral {
+    color: hsl(var(--notion-gray));
+  }
+
+  /* Badge styles */
+  .notion-badge {
+    background-color: hsl(var(--notion-accent));
+    color: hsl(var(--notion-text));
+    border: 1px solid hsl(var(--notion-border));
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .notion-badge-primary {
+    background-color: hsl(var(--notion-blue));
+    color: white;
+    border-color: hsl(var(--notion-blue));
+  }
+
+  .notion-badge-success {
+    background-color: hsl(var(--notion-green));
+    color: white;
+    border-color: hsl(var(--notion-green));
+  }
+
+  .notion-badge-warning {
+    background-color: hsl(var(--notion-orange));
+    color: white;
+    border-color: hsl(var(--notion-orange));
+  }
+
+  .notion-badge-error {
+    background-color: hsl(var(--notion-red));
+    color: white;
+    border-color: hsl(var(--notion-red));
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+}
+
+/* Animaciones personalizadas - simplificadas */
+@layer utilities {
+  .animate-in {
+    animation-fill-mode: both;
+  }
+
+  .animate-out {
+    animation-fill-mode: both;
+  }
+
+  .slide-in-from-top-4 {
+    animation: slideInFromTop 0.5s ease-out;
+  }
+
+  .slide-in-from-bottom-4 {
+    animation: slideInFromBottom 0.5s ease-out;
+  }
+
+  .slide-in-from-left-4 {
+    animation: slideInFromLeft 0.5s ease-out;
+  }
+
+  .slide-in-from-right-4 {
+    animation: slideInFromRight 0.5s ease-out;
+  }
+
+  .slide-in-from-left-2 {
+    animation: slideInFromLeft2 0.5s ease-out;
+  }
+
+  .fade-in-0 {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  /* Delays simplificados */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+  .delay-900 { animation-delay: 900ms; }
+  .delay-1000 { animation-delay: 1000ms; }
+}
+
+/* Keyframes para las animaciones */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft2 {
+  from {
+    opacity: 0;
+    transform: translateX(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animaciones esenciales - movidas a tailwind.config.ts */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Animaciones para menú móvil */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scroll suave en móvil para contenedor principal */
+@media (max-width: 768px) {
+  .flex-1.min-h-0.relative.overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Scroll personalizado para áreas móviles */
+.mobile-scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--notion-accent)) hsl(var(--notion-surface));
+}
+
+.mobile-scroll-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mobile-scroll-area::-webkit-scrollbar-track {
+  background-color: hsl(var(--notion-surface));
+  border-radius: 4px;
+}
+
+.mobile-scroll-area::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--notion-accent));
+  border-radius: 4px;
+}
+
+.mobile-scroll-area::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--notion-accent-hover));
+}
+
+/* Estilos para header expandido con scroll suave */
+.header-expanded-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
