@@ -5,6 +5,9 @@
  * Proporciona una API tipada y manejo de errores robusto para la UI.
  */
 
+// Importar el worker usando la sintaxis de Vite para garantizar el bundling correcto
+import SimulationWorkerConstructor from '../../workers/simulation.worker.ts?worker'
+
 import type {
   SimulationCommand,
   SimulationEvent,
@@ -110,27 +113,13 @@ export class WorkerManager {
     }
 
     try {
-      // Crear Worker: preferir factoría inyectada (tests), luego workerPath, luego default
-      let createdWorker: Worker | null = null
+      // Crear Worker: preferir factoría inyectada (tests), luego usar constructor importado
       if (this.config.createWorker) {
-        createdWorker = this.config.createWorker()
+        this.worker = this.config.createWorker()
       } else {
-        try {
-          const path = this.config.workerPath
-          if (path) {
-            if (path.startsWith('.') || path.startsWith('..')) {
-              createdWorker = new Worker(new URL(path, import.meta.url), { type: 'module' })
-            } else {
-              // Ruta absoluta/URL servida; útil en dev. En prod podría no existir si no fue bundleada.
-              createdWorker = new Worker(path as string, { type: 'module' })
-            }
-          }
-        } catch (_) {
-          createdWorker = null
-        }
+        // Usar el constructor importado que Vite bundleará correctamente
+        this.worker = new SimulationWorkerConstructor()
       }
-
-      this.worker = createdWorker || new Worker(new URL('../../workers/simulation.worker.ts', import.meta.url), { type: 'module' })
       
       // Configurar event listeners
       this.setupEventListeners()
