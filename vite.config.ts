@@ -17,10 +17,7 @@ export default defineConfig({
     },
   },
   worker: {
-    format: DEV_CONFIG.test.environment === 'jsdom' ? 'es' : 'es',
-  },
-  optimizeDeps: {
-    exclude: ['src/workers/simulation.worker.ts']
+    format: 'es',
   },
   build: {
     rollupOptions: {
